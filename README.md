@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="./assets/V4Logo.png" />
+  <img src="./src/assets/V4Logo.png" />
 </p>
 
 <p align="center">
   Projeto desenvolvido com ReactJs.
 </p> 
 
-<img src="./assets/screens.png" align="center" />
+<img src="./src/assets/screens.png" align="center" />
 
 ## Tech
 
