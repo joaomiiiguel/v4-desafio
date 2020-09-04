@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff2a2c;
+    padding: 20px;
+}
+
+.logoV4{
+    height: 12vh;
+    margin: 10px;
+}
+
+.content-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content-title h1, p{
+    margin: 0;
+    color: #e1e0e0
+}
+
+@media screen and (max-width: 378px){
+    .content-title p{
+        font-size: 15px;
+    }
+}
