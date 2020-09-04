@@ -35,16 +35,18 @@ function Dashboard() {
 
   //Cadastrar os nova Tool ao clicar no btn
   function handleAddTool(){
-    setTool([
-      ... tool,
-      { 
-        id: Math.random(), 
-        title:nameTool,
-        link:linkTool,
-        description:descriptionTool,
-        tags:tagsTool,
-      }
-    ])
+      return setTool([
+        ... tool,
+        { 
+          id: Math.random(), 
+          title:nameTool,
+          link: linkTool,
+          description:descriptionTool,
+          tags:tagsTool
+        }
+      ]);
+      setVisibleModal(false);
+
   }
 
   //Função para deletar Tools
@@ -52,6 +54,12 @@ function Dashboard() {
     const newList = tool.filter((item) => item.id !== id);
     setTool(newList);
   }
+
+  function handleBtnAdd(){
+    handleAddTool();
+    setVisibleModal(false);
+  }
+  
   
   return (
     
@@ -82,66 +90,63 @@ function Dashboard() {
             
         </div>
 
+        
+
+        <div className="content-cards">
         {visibleModal ?
         <div className="modal-wrapper">
-            <div className="modal-backdrop" onClick={() => setVisibleModal(false)}/>
-            <div className="modal-box">
+          <div className="modal-backdrop" onClick={() => setVisibleModal(false)}/>
+          <div className="modal-box">
             <div className="header-modal">
                 <h3>Add new tool</h3>
                 <button className="buttonDel" onClick={() => setVisibleModal(false)}>
                   <img src={close} />
                 </button>
             </div>
-            
-
-            <form className="Form-box">
-                <label>
-                    Tool Name:
-                    <input 
-                    type="text"
-                    placeholder="Tool name..."
-                    onChange={ e => setNameTool(e.target.value)}
-                    />
-                </label>
-                
-                <label>
-                    Tool Link:
-                    <input 
-                    type="text"
-                    placeholder="Tool link..."
-                    onChange={ e => setLinkTool(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Tool Description:
-                    <textarea 
-                    type="textArea"
-                    placeholder="Write something about tool.."
-                    rows="5" 
-                    onChange={ e => setDescriptionTool(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Tool Tags:
-                    <input 
-                    type="text"
-                    placeholder="Something tool tags..."
-                    onChange={ e => setTagsTool(e.target.value)}
-                    />
-                </label>
-
-                <button className="btnAdd" onClick={handleAddTool}>
-                    <p>Add tool</p>
-                </button>
-
-            </form>
-            
+            <div className="Form-box">
+              <div>
+                  Tool Name:
+                  <input 
+                  type="text"
+                  placeholder="Tool name..."
+                  onChange={ e => setNameTool(e.target.value)}
+                  />    
+              </div>
+              <div>
+                  Tool Link:
+                  <input 
+                  type="text"
+                  placeholder="Tool link..."
+                  onChange={ e => setLinkTool(e.target.value)}
+                  />
+              </div>
+              <div>
+                  Tool Description:
+                  <textarea 
+                  type="textArea"
+                  placeholder="Write something about tool.."
+                  rows="5" 
+                  onChange={ e => setDescriptionTool(e.target.value)}
+                  />
+              </div>
+              <div>
+                  Tool Tags:
+                  <input 
+                  type="text"
+                  placeholder="Something tool tags..."
+                  onChange={ e => setTagsTool(e.target.value)}
+                  />
+              </div>
+              <button type="submit" className="btnAdd" onClick={handleBtnAdd}>
+                <p>Add tool</p>
+              </button>
+              </div>
             </div>
-        </div>
-        : null
+          </div>
+          : null
         }
 
-        <div className="content-cards">
+
             {filteredTools.reverse().map(item => (
               <div className="cards" key={item.id}>
                 <div className="header-card">
