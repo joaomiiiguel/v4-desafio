@@ -16,9 +16,9 @@
 
 ## Pré-Visualização
 
-[Link projeto no Netlify](https://miguel-desafio-v4.netlify.app)
+[Projeto no Netlify(Sem API)](https://miguel-desafio-v4.netlify.app)
 
-## Configuração de Desenvolvimento setup
+## Configuração de Desenvolvimento
 
 ### Pré-Requisitos
 
