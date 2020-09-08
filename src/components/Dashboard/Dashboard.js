@@ -30,7 +30,7 @@ function Dashboard() {
 
   //Sistema de filtragem na busca 
   const filteredTools = tool.filter( tools =>{
-    return tools.title.includes(search)
+    return tools.title.includes(search) //Busca realizada pelo título do card
   })
 
 
@@ -39,7 +39,7 @@ function Dashboard() {
       return setTool([
         ... tool,
         { 
-          id: Math.random(), 
+          id: Math.random(), //Gerar um ID para o novo card
           title:nameTool,
           link: linkTool,
           description:descriptionTool,
@@ -106,7 +106,7 @@ function Dashboard() {
             </div>
             <div className="Form-box">
               <div>
-                  Tool Name:
+                  <p>Tool Name:</p>
                   <input 
                   type="text"
                   placeholder="Tool name..."
@@ -114,7 +114,7 @@ function Dashboard() {
                   />    
               </div>
               <div>
-                  Tool Link:
+                  <p>Tool Link:</p>
                   <input 
                   type="text"
                   placeholder="Tool link..."
@@ -122,7 +122,7 @@ function Dashboard() {
                   />
               </div>
               <div>
-                  Tool Description:
+                  <p>Tool Description:</p>
                   <textarea 
                   type="textArea"
                   placeholder="Write something about tool.."
@@ -131,7 +131,7 @@ function Dashboard() {
                   />
               </div>
               <div>
-                  Tool Tags:
+                  <p>Tool Tags:</p>
                   <input 
                   type="text"
                   placeholder="Something tool tags..."
@@ -162,7 +162,7 @@ function Dashboard() {
                           
             ))}
         </div>
-    </div>
+      </div>
     </div>
   );
 }
